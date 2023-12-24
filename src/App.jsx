@@ -6,11 +6,14 @@ import axios from "axios";
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [movieDetails, setMovieDetails] = useState(null);
+  const [suggestions, setSuggestions] = useState([]);
   useEffect(() => {
     axios
       .get(`http://www.omdbapi.com/?t={${searchTerm}}&apikey=3cb18b0`)
       .then((res) => {
         setMovieDetails(res.data);
+        // const movieSuggestions = res.data.results || [];
+        //setSuggestions(movieSuggestions);
         console.log(res.data);
       })
       .catch((err) => {
@@ -59,12 +62,31 @@ function App() {
       </div>
       {movieDetails && (
         <div>
-          <p>
-            {" "}
-            <p>Title: {movieDetails.Title}</p>
-          </p>
+          <div className="card-container">
+            <img className="card-img" src={movieDetails.Poster} alt="" />
+
+            <div className="card-content">
+              <h2 className="card-content-h">{movieDetails.Title}</h2>
+              <p className="card-content-font">{movieDetails.Year}</p>
+              <p className="card-content-font">{movieDetails.Language}</p>
+              <p className="card-content-font">{movieDetails.Genre}</p>
+              <p className="card-content-font-plot">{movieDetails.Plot}</p>
+              <p className="card-content-font">
+                IMDB:{movieDetails.imdbRating}
+              </p>
+            </div>
+          </div>
         </div>
       )}
+      {/*suggestions.length > 0 && (
+        <ul>
+          {suggestions.map((suggestion, index) => (
+            <div className="card">
+              <li>{suggestion.Title}</li>
+            </div>
+          ))}
+        </ul>
+      )*/}
     </>
   );
 }

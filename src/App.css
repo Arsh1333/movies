@@ -38,6 +38,30 @@ font-family: 'Playfair Display', serif;
   width: 97%;
   display: block;
 }
+input {
+  margin-top: 20px;
+}
+h2 {
+  margin-left: 40px;
+  font-family: "Playfair Display", serif;
+}
+.card-content-font {
+  margin-left: 40px;
+  font-family: "Playfair Display", serif;
+}
+.card-content-font-plot {
+  margin-left: 40px;
+  font-size: small;
+  font-weight: bold;
+  font-family: "Playfair Display", serif;
+}
+.card-img {
+  height: 200px;
+  margin: 20px !important;
+  border-radius: 20px;
+  width: 88% !important;
+  display: block;
+}
 .text-overlay {
   position: absolute;
   top: 50%;
@@ -65,6 +89,12 @@ font-family: 'Playfair Display', serif;
   background: rgb(178, 245, 161);
 }
 
+.card-container {
+  border: 2px solid rgb(146, 138, 138);
+  border-radius: 20px;
+  margin: 20px;
+  background-color: #fbe586;
+}
 @media (max-width: 768px) {
   body,
   html {
@@ -81,5 +111,13 @@ font-family: 'Playfair Display', serif;
     margin: 0;
     margin-top: 10px;
     width: 100%;
+  }
+  .card-img {
+    margin: 0;
+    margin-top: 10px;
+    width: 100%;
+  }
+  .input-movie-btn {
+    display: none;
   }
 }
