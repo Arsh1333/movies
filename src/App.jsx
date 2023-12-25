@@ -9,7 +9,7 @@ function App() {
   // const [suggestions, setSuggestions] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://www.omdbapi.com/?t={${searchTerm}}&apikey=3cb18b0`)
+      .get(`https://www.omdbapi.com/?t={${searchTerm}}&apikey=3cb18b0`)
       .then((res) => {
         setMovieDetails(res.data);
         // const movieSuggestions = res.data.results || [];
