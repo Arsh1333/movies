@@ -5,8 +5,8 @@ import axios from "axios";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [movieDetails, setMovieDetails] = useState(null);
-  const [suggestions, setSuggestions] = useState([]);
+  const [movieDetails, setMovieDetails] = useState({});
+  // const [suggestions, setSuggestions] = useState([]);
   useEffect(() => {
     axios
       .get(`http://www.omdbapi.com/?t={${searchTerm}}&apikey=3cb18b0`)
@@ -60,7 +60,7 @@ function App() {
           </button>
         </form>
       </div>
-      {movieDetails && (
+      {movieDetails.Title && (
         <div>
           <div className="card-container">
             <img className="card-img" src={movieDetails.Poster} alt="" />
